@@ -5,13 +5,17 @@ import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import { errors } from 'celebrate';
 import 'express-async-errors';
+import swaggerUi from 'swagger-ui-express';
 
 import AppError from '@shared/errors/AppError';
 import routes from './routes';
+import swaggerConfig from '@config/swagger';
 
 import '@shared/container';
 
 const app = express();
+
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerConfig));
 
 app.use(cors());
 app.use(express.json());

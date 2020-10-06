@@ -1,10 +1,11 @@
+import { Request, Response } from 'express';
+import { container } from 'tsyringe';
+
 import CreateBookService from '@modules/books/services/CreateBookService';
 import DeleteBookService from '@modules/books/services/DeleteBookService';
 import ListBooksService from '@modules/books/services/ListBooksService';
 import SearchBookService from '@modules/books/services/SearchBookService';
 import UpdateBookService from '@modules/books/services/UpdateBookService';
-import { Request, Response } from 'express';
-import { container } from 'tsyringe';
 
 export default class BooksController {
   async create(request: Request, response: Response): Promise<Response> {
